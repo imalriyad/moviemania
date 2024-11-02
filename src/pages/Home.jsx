@@ -106,15 +106,17 @@ const fetchMovies = async () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 500; // Trigger when near the bottom
+      const nearBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 500;
       if (nearBottom) {
-        fetchMovies(); // Fetch more movies
+        fetchMovies();
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll); // Cleanup listener on unmount
-  }, [hasMore, isLoading]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [fetchMovies]);
+
 
 
 
